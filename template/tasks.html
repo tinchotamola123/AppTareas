@@ -5,8 +5,11 @@
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h1 class="text-center display-3 py-5">Task Pending</h1>
-
+            {% if pending == 1 %}
+                <h1 class="text-center display-3 py-5">Task Pending</h1>
+                {% else %}
+                <h1 class="text-center display-3 py-5">Task Completed</h1>
+            {% endif %}
             <ul class="list-group">
                 {% for task in tasks %}
                 <a class="list-group-item" href="{% url 'task_detail' task.id %}">
